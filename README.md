@@ -1,7 +1,7 @@
 Aligna is a Human Resource Management System designed to digitize and streamline core HR operations such as employee management, attendance tracking, leave management, and role-based access for HR and employees.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Features
+**Features**
 
 Secure authentication (predefined credentials only)
 
@@ -17,7 +17,7 @@ Leave approval workflow (HR only)
 
 Read-only payroll visibility for employees
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-User Roles
+**User Roles**
 
 HR
 
@@ -35,7 +35,7 @@ Can apply for leave
 
 Limited access (no approvals or admin controls)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Login Credentials (IMPORTANT)
+**Login Credentials**
 
 These are the ONLY valid credentials for running the application.
 No other credentials will work. Sign-up is not supported.
@@ -81,8 +81,7 @@ Email: priya.verma@aligna.io
 Password: Priya@123
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
- Running the Project
+  **Running the Project**
 
 Follow the steps below to run the project locally:
 
@@ -93,7 +92,7 @@ npm install
 npm run build
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
-Important Notes
+**Important Notes**
 
 Login is restricted to the credentials listed above
 
@@ -105,4 +104,4 @@ All other users are Employees
 
 Credentials are for demo/testing purposes only
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Note: Only one HR account exists in the system. All other users are Employees.
+**Note** : Only one HR account exists in the system. All other users are Employees.
