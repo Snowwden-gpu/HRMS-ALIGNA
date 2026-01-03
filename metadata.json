@@ -1,0 +1,7 @@
+{
+  "name": "Aligna HRMS",
+  "description": "A modern, enterprise-grade Human Resource Management System designed for perfect organizational alignment, featuring role-based dashboards, attendance tracking, leave management, and payroll analytics.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

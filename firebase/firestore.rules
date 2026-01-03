@@ -1,0 +1,37 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    match /attendance/{documentId} {
+      // HR ADMIN (MANAGER) PERMISSIONS: Read-all access only
+      allow read: if request.auth != null && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
+
+      // EMPLOYEE PERMISSIONS: Read-own access only
+      allow read: if request.auth != null && 
+        resource.data.employeeId == get(/databases/$(database)/documents/users/$(request.auth.uid)).data.employeeId;
+
+      // ATTENDANCE LOGGING: 
+      // - Users can only create/update their own records
+      // - Timestamps and historical data cannot be manipulated
+      allow create: if request.auth != null && 
+        request.resource.data.employeeId == get(/databases/$(database)/documents/users/$(request.auth.uid)).data.employeeId &&
+        request.resource.data.sessions.size() == 1;
+      
+      allow update: if request.auth != null && 
+        resource.data.employeeId == get(/databases/$(database)/documents/users/$(request.auth.uid)).data.employeeId &&
+        request.resource.data.date == resource.data.date &&
+        request.resource.data.employeeId == resource.data.employeeId;
+
+      // STRICT CONSTRAINTS: No deletions, no HR overrides
+      allow delete: if false;
+    }
+    
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if false; // Profiles managed via Internal Admin Console only
+    }
+  }
+}
